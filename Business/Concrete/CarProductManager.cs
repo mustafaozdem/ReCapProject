@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -27,18 +28,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carProductDal.GetAll(), Messages.ProductsListed);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
-        {
-            //_carProductDal.Add(car);
-            //return new SuccessResult(Messages.ProductAdded);  
-
-
-
-            ValidationTool.Validate(new CarValidator(), car);
-
-            
-
-
+        {      
+              
+           
             _carProductDal.Add(car);
             return new SuccessResult(Messages.ProductAdded);
 
