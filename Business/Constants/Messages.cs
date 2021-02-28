@@ -18,6 +18,6 @@ namespace Business.Constants
         public static string CarRented = "Araba kiralandı.";
         public static string CustomerInvalid = "Müşteri geçerli değil.";
         public static string CustomerAdded = "Müşteri eklendi.";
-        
+        public static string CarImageLimitExceeded = "Araç fotoğrafı limitine ulaşıldı";
     }
 }
